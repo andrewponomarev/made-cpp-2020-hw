@@ -124,9 +124,6 @@ namespace task {
             this->controlBlock = other.controlBlock;
             this->controlBlock->sharedCount++;
         }
-//        } else {
-//            throw std::invalid_argument("Weak pointer should not be empty");
-//        }
     }
 
     template <class T>
