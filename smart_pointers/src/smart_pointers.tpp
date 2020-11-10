@@ -142,7 +142,7 @@ namespace task {
     }
 
     template <class T>
-    size_t SharedPtr<T>::use_count () const {
+    std::size_t SharedPtr<T>::use_count () const {
         if (this->controlBlock->pointer) {
             return this->controlBlock->sharedCount;
         } else {
@@ -227,7 +227,7 @@ namespace task {
     }
 
     template <class T>
-    size_t WeakPtr<T>::use_count () const {
+    std::size_t WeakPtr<T>::use_count () const {
         if (this->controlBlock) {
             return this->controlBlock->sharedCount;
         } else {
