@@ -22,13 +22,15 @@ public:
     Matrix(const Matrix& copy);
     Matrix& operator=(const Matrix& a);
 
+    ~Matrix();
+
     double& get(size_t row, size_t col);
     const double& get(size_t row, size_t col) const;
     void set(size_t row, size_t col, const double& value);
     void resize(size_t new_rows, size_t new_cols);
 
-    /* ??? */ operator[](size_t row);
-    /* ??? */ operator[](size_t row) const;
+    double* operator[](size_t row);
+    double* operator[](size_t row) const;
 
     Matrix& operator+=(const Matrix& a);
     Matrix& operator-=(const Matrix& a);
@@ -54,7 +56,19 @@ public:
     bool operator==(const Matrix& a) const;
     bool operator!=(const Matrix& a) const;
 
-    // Your code goes here...
+    size_t getRows() const;
+    size_t getCols() const;
+
+ private:
+
+    void checkBounds(const size_t& row, const size_t& col) const;
+    void checkSize(const Matrix& a) const;
+    double det(const Matrix& a) const;
+    void allocSpace();
+
+    double** data_;
+    size_t rows_;
+    size_t cols_;
 
 };
 
